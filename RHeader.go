@@ -10,10 +10,12 @@ import (
 
 type KOMHeader struct {
 	_header       string
-	_crc          uint32
 	_filesNumber  uint32
-	_xmlSize      uint32
+	_crc          uint32
+	_fileTime     uint32
+	_checksum     uint32
 	_isCompressed uint32
+	_xmlSize      uint32
 	_xmlBuffer    string
 }
 

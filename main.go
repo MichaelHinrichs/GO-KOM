@@ -47,14 +47,14 @@ fromstart:
 	data.Read(arrayed)
 	_xmlBuffer := string(arrayed)
 
+	fmt.Printf("Header: %s\n", _magic)
 	fmt.Printf("Files number: %d\n", _filesNum)
 	fmt.Printf("Is Compressed: %d\n", _crc)
 	fmt.Printf("Saved At: %d\n", _fileTime)
 	fmt.Printf("Checksum: %d\n", _checksum)
 	fmt.Printf("XML Size: %d\n", _xmlsize)
-	fmt.Printf("Header: %s\n", _magic)
 
-	var _headerInfo = KOMHeader{_magic, _crc, _filesNum, _xmlsize, _crc, _xmlBuffer}
+	var _headerInfo = KOMHeader{_magic, _filesNum, _crc, _fileTime, _checksum, _crc, _xmlsize, _xmlBuffer}
 
 	//fileList := interpretXML(_headerInfo)
 	interpretXML(_headerInfo, data)
