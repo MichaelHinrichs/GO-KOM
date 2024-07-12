@@ -35,7 +35,10 @@ fromstart:
 	_crc := binary.LittleEndian.Uint32(arrayed)
 
 	data.Read(arrayed)
+	_fileTime := binary.LittleEndian.Uint32(arrayed)
+	
 	data.Read(arrayed)
+	_checksum := binary.LittleEndian.Uint32(arrayed)
 
 	data.Read(arrayed)
 	_xmlsize := binary.LittleEndian.Uint32(arrayed)
@@ -46,6 +49,8 @@ fromstart:
 
 	fmt.Printf("Files number: %d\n", _filesNum)
 	fmt.Printf("Is Compressed: %d\n", _crc)
+	fmt.Printf("Saved At: %d\n", _fileTime)
+	fmt.Printf("Checksum: %d\n", _checksum)
 	fmt.Printf("XML Size: %d\n", _xmlsize)
 	fmt.Printf("Header: %s\n", _magic)
 
